@@ -3,7 +3,7 @@
 int main() {
     int limite, terme1 = 0, terme2 = 1, termeSuivant;
 
-    // Lire la limite (ex: 20)
+    // Lire la limite
     scanf("%d", &limite);
 
     // Cas spécial : si la limite est négative, on ne fait rien
