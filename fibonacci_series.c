@@ -1,27 +1,25 @@
 #include <stdio.h>
 
 int main() {
-    int limite, terme1 = 0, terme2 = 1, termeSuivant;
+    int nbTermes, terme1 = 0, terme2 = 1, termeSuivant;
 
-    // Lire la limite
-    scanf("%d", &limite);
+    // Lire le nombre de termes (comme dans votre exemple)
+    scanf("%d", &nbTermes);
 
-    // Cas spécial : si la limite est négative, on ne fait rien
-    if (limite < 0) {
-        return 0;  // Fin du programme
+    // Vérifier si le nombre est valide (comme dans votre exemple)
+    if(nbTermes <= 0) {
+        printf("Erreur : Entrez un nombre > 0\n");
+        return 0;
     }
 
-    // Afficher les 2 premiers termes (0 et 1)
-    printf("%d %d ", terme1, terme2);
-
-    // Calculer et afficher les termes suivants ≤ limite
-    termeSuivant = terme1 + terme2;
-    while (termeSuivant <= limite) {
-        printf("%d ", termeSuivant);
+    // Afficher les termes (sans texte décoratif, comme dans le PDF)
+    for(int i = 1; i <= nbTermes; i++) {
+        printf("%d ", terme1);
+        termeSuivant = terme1 + terme2;
         terme1 = terme2;
         terme2 = termeSuivant;
-        termeSuivant = terme1 + terme2;
     }
+    printf("\n");  // Retour à la ligne final
 
     return 0;
 }
