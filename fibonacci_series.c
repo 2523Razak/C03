@@ -1,24 +1,27 @@
 #include <stdio.h>
 
 int main() {
-    int limite, a = 0, b = 1, c;  // a et b sont les 2 premiers termes de Fibonacci
+    int limite, terme1 = 0, terme2 = 1, termeSuivant;
 
-    // On lit la limite jusqu'où afficher la série
+    // Lire la limite (ex: 20)
     scanf("%d", &limite);
 
-    // On affiche les 2 premiers termes (0 et 1)
-    printf("%d %d ", a, b);
-
-    // On calcule le terme suivant
-    c = a + b;
-
-    // Tant que le terme suivant ne dépasse pas la limite
-    while (c <= limite) {
-        printf("%d ", c);  // On affiche le terme
-        a = b;  // On met à jour les variables pour le prochain terme
-        b = c;
-        c = a + b;
+    // Cas spécial : si la limite est négative, on ne fait rien
+    if (limite < 0) {
+        return 0;  // Fin du programme
     }
 
-    return 0;  // Fin du programme
+    // Afficher les 2 premiers termes (0 et 1)
+    printf("%d %d ", terme1, terme2);
+
+    // Calculer et afficher les termes suivants ≤ limite
+    termeSuivant = terme1 + terme2;
+    while (termeSuivant <= limite) {
+        printf("%d ", termeSuivant);
+        terme1 = terme2;
+        terme2 = termeSuivant;
+        termeSuivant = terme1 + terme2;
+    }
+
+    return 0;
 }
