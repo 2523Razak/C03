@@ -1,20 +1,28 @@
 #include <stdio.h>
 
 int main() {
-    int max;
-    scanf("%d", &max);
+    int n, i, U, Up, Upp;
     
-    if (max >= 0) printf("0");
-    if (max >= 1) printf("1");
-    
-    int prev = 0, current = 1;
-    while (1) {
-        int next = prev + current;
-        if (next > max) break;
-        printf("%d ", next);
-        prev = current;
-        current = next;
+    // Partie saisie (identique à votre image)
+    do {
+        
+        scanf("%d", &n);
+    } while (n < 2);
+
+    // Initialisation (identique)
+    Upp = 0;
+    Up = 1;
+
+    // Affichage compact U0 et U1 (seule modification)
+    printf("%d %d ", Upp, Up);
+
+    // Boucle de calcul (identique)
+    for (i = 2; i <= n; i++) {
+        U = Upp + Up;
+        printf("%d ", U);  // Affichage compact
+        Upp = Up;
+        Up = U;
     }
-    
+
     return 0;
 }
