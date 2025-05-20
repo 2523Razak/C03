@@ -1,15 +1,21 @@
 #include <stdio.h>
 
 int main() {
-    int n, a = 0, b = 1;
-    scanf("%d", &n); // L'utilisateur saisit le nombre de termes (ex: 20)
-
-    for (int i = 0; i < n; i++) {
-        printf("%d ", a);
-        int temp = a;
+    int limite;
+    scanf("%d", &limite);  // L'utilisateur entre la limite (ex: 20)
+    
+    int a = 0, b = 1;      // On initialise les 2 premiers termes
+    
+    // On affiche toujours le premier 0
+    printf("%d ", a);
+    
+    // On affiche les termes suivants tant qu'ils sont <= limite
+    while (b <= limite) {
+        printf("%d ", b);
+        int prochain = a + b;
         a = b;
-        b = temp + b;
+        b = prochain;
     }
-
+    
     return 0;
 }
