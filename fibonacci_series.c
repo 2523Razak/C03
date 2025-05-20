@@ -1,25 +1,19 @@
 #include <stdio.h>
 
 int main() {
-    int limite;
-    
-    scanf("%d", &limite);
+    int n, a = 0, b = 1, suivant;
+    scanf("%d", &n); // Saisie de l'utilisateur (ex: 20)
 
-    int a = 0, b = 1;
+    // Affiche les deux premiers termes (0 et 1)
+    printf("%d %d ", a, b);
 
-    // Affiche les deux premiers termes (0 et 1) même si limite = 0
-    printf("%d ", a);
-    if (limite >= 1) {
-        printf("%d ", b);
-    }
-
-    // Génère les termes suivants jusqu'à ne pas dépasser la limite
-    while (a + b <= limite) {
-        int suivant = a + b;
+    // Génère les (n - 2) termes suivants
+    for (int i = 2; i < n; i++) {
+        suivant = a + b;
         printf("%d ", suivant);
         a = b;
         b = suivant;
     }
-    
+
     return 0;
 }
