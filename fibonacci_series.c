@@ -1,28 +1,24 @@
 #include <stdio.h>
 
 int main() {
-    int n, i, U, Up, Upp;
+    int n, U, Up = 1, Upp = 0;
     
-    // Partie saisie (identique à votre image)
-    do {
+    scanf("%d", &n);  // Lecture de l'entrée
+    
+    if (n < 2) {
+        printf("Erreur : n doit etre >= 2\n");
+        return 1;  // Quitte le programme avec erreur
+    } else {
+        printf("%d %d ", Upp, Up);  // Affiche 0 et 1
         
-        scanf("%d", &n);
-    } while (n < 2);
-
-    // Initialisation (identique)
-    Upp = 0;
-    Up = 1;
-
-    // Affichage compact U0 et U1 (seule modification)
-    printf("%d %d ", Upp, Up);
-
-    // Boucle de calcul (identique)
-    for (i = 2; i <= n; i++) {
         U = Upp + Up;
-        printf("%d ", U);  // Affichage compact
-        Upp = Up;
-        Up = U;
+        while (U <= n) {
+            printf("%d ", U);
+            Upp = Up;
+            Up = U;
+            U = Upp + Up;
+        }
     }
-
+    
     return 0;
 }
