@@ -2,7 +2,7 @@
 
 int main() {
     int limite;
-    printf("Entrez la valeur limite : ");
+    
     scanf("%d", &limite);
 
     int a = 0, b = 1;
@@ -20,7 +20,6 @@ int main() {
         a = b;
         b = suivant;
     }
-
-    printf("\n");
+    
     return 0;
 }
