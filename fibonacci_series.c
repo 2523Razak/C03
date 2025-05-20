@@ -1,22 +1,22 @@
 #include <stdio.h>
 
 int main() {
-    int n, i;
-    long long a = 0, b = 1, next;
-
-    scanf("%d", &n);
-
-    if (n <= 0) {
-        printf("Erreur : veuillez entrer un nombre entier positif supérieur à zéro.\n");
-        return 1;
+    int limite;
+    scanf("%d", &limite); // Lecture de la valeur limite
+    
+    int terme1 = 0, terme2 = 1, termeSuivant;
+    
+    // Affichage des deux premiers termes sans espace
+    printf("%d %d ", terme1, terme2); // Pas d'espace entre a et b
+    
+    // Génération des termes suivants
+    c = a + b;
+    while (c <= limite) {
+        printf("%d ", termeSuivant); // Pas d'espace
+        terme1 = terme2;
+        terme2 = termeSuivant;
+        termeSuivant = terme1 + terme2;
     }
-
-    for (i = 0; i < n; i++) {
-        printf("%lld ", a);
-        next = a + b;
-        a = b;
-        b = next;
-    }
-  
+    
     return 0;
 }
