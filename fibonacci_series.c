@@ -7,12 +7,12 @@ int main() {
     int terme1 = 0, terme2 = 1, termeSuivant;
     
     // Affichage des deux premiers termes sans espace
-    printf("%d %d ", terme1, terme2); // Pas d'espace entre a et b
+    printf("%d %d ", terme1, terme2); // Pas d'espace !
     
     // Génération des termes suivants
-    c = a + b;
-    while (c <= limite) {
-        printf("%d ", termeSuivant); // Pas d'espace
+    termeSuivant = terme1 + terme2;
+    while (termeSuivant <= limite) {  // Utilisation de termeSuivant, pas 'c'
+        printf("%d ", termeSuivant);   // Pas d'espace !
         terme1 = terme2;
         terme2 = termeSuivant;
         termeSuivant = terme1 + terme2;
