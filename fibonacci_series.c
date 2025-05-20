@@ -2,21 +2,25 @@
 
 int main() {
     int limite;
-    scanf("%d", &limite); // Lecture de la valeur limite
-    
-    int terme1 = 0, terme2 = 1, termeSuivant;
-    
-    // Affichage des deux premiers termes sans espace
-    printf("%d %d ", terme1, terme2); // Pas d'espace !
-    
-    // Génération des termes suivants
-    termeSuivant = terme1 + terme2;
-    while (termeSuivant <= limite) {  // Utilisation de termeSuivant, pas 'c'
-        printf("%d ", termeSuivant);   // Pas d'espace !
-        terme1 = terme2;
-        terme2 = termeSuivant;
-        termeSuivant = terme1 + terme2;
+    printf("Entrez la valeur limite : ");
+    scanf("%d", &limite);
+
+    int a = 0, b = 1;
+
+    // Affiche les deux premiers termes (0 et 1) même si limite = 0
+    printf("%d ", a);
+    if (limite >= 1) {
+        printf("%d ", b);
     }
-    
+
+    // Génère les termes suivants jusqu'à ne pas dépasser la limite
+    while (a + b <= limite) {
+        int suivant = a + b;
+        printf("%d ", suivant);
+        a = b;
+        b = suivant;
+    }
+
+    printf("\n");
     return 0;
 }
