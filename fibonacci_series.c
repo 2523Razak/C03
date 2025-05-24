@@ -1,23 +1,21 @@
 #include <stdio.h>
 
 int main() {
-    int n, U, Up = 1, Upp = 0;
+    int limite;
+    scanf("%d", &limite); // Lecture de la valeur limite
     
-    scanf("%d", &n);  // Lecture de l'entrée
+    int terme1 = 0, terme2 = 1, termeSuivant;
     
-    if (n < 2) {
-        printf("Erreur : n doit etre >= 2\n");
-        return 1;  // Quitte le programme avec erreur
-    } else {
-        printf("%d %d ", Upp, Up);  // Affiche 0 et 1
-        
-        U = Upp + Up;
-        while (U <= n) {
-            printf("%d ", U);
-            Upp = Up;
-            Up = U;
-            U = Upp + Up;
-        }
+    // Affichage des deux premiers termes sans espace
+    printf("%d %d ", terme1, terme2); // Pas d'espace !
+    
+    // Génération des termes suivants
+    termeSuivant = terme1 + terme2;
+    while (termeSuivant <= limite) {  // Utilisation de termeSuivant, pas 'c'
+        printf("%d ", termeSuivant);   // Pas d'espace !
+        terme1 = terme2;
+        terme2 = termeSuivant;
+        termeSuivant = terme1 + terme2;
     }
     
     return 0;
