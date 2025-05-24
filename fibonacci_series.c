@@ -1,22 +1,24 @@
 #include <stdio.h>
 
 int main() {
-    int limite;
-    scanf("%d", &limite); // Lecture de la valeur limite
+    int n, i;
+    long long a = 0, b = 1, c; // On stocke juste 3 nombres
     
-    int terme1 = 0, terme2 = 1, termeSuivant;
-    
-    // Affichage des deux premiers termes sans espace
-    printf("%d %d ", terme1, terme2); // Pas d'espace !
-    
-    // Génération des termes suivants
-    termeSuivant = terme1 + terme2;
-    while (termeSuivant <= limite) {  // Utilisation de termeSuivant, pas 'c'
-        printf("%d ", termeSuivant);   // Pas d'espace !
-        terme1 = terme2;
-        terme2 = termeSuivant;
-        termeSuivant = terme1 + terme2;
+    scanf("%d", &n);
+
+    if (n <= 0) {
+        printf("Erreur : n doit être > 0.\n");
+        return 1;
     }
-    
+
+    printf("Suite de Fibonacci jusqu'à n=%d :\n", n);
+
+    for (i = 0; i < n; i++) {
+        printf("%lld ", a); // Affiche le terme actuel (a)
+        c = a + b; // Calcule le prochain terme
+        a = b;     // Met à jour a (terme précédent)
+        b = c;     // Met à jour b (terme suivant)
+    }
+
     return 0;
 }
