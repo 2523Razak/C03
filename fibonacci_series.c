@@ -1,24 +1,21 @@
 #include <stdio.h>
 
+int fibo_terme(int t) {
+    if (t == 0) return 0;
+    if (t == 1) return 1;
+    return fibo_terme(t - 2) + fibo_terme(t - 1);
+}
+
 int main() {
-    int n, i;
-    long long a = 0, b = 1, c; // On stocke juste 3 nombres
+    int limite;
+    scanf("%d", &limite); // Ex: 20
     
-    scanf("%d", &n);
-
-    if (n <= 0) {
-        printf("Erreur : n doit être > 0.\n");
-        return 1;
+    // Affiche tous les termes ≤ limite
+    for (int i = 0; ; i++) {
+        int terme = fibo_terme(i);
+        if (terme > limite) break;
+        printf("%d ", terme); // Pas d'espace
     }
-
-    printf("Suite de Fibonacci jusqu'à n=%d :\n", n);
-
-    for (i = 0; i < n; i++) {
-        printf("%lld ", a); // Affiche le terme actuel (a)
-        c = a + b; // Calcule le prochain terme
-        a = b;     // Met à jour a (terme précédent)
-        b = c;     // Met à jour b (terme suivant)
-    }
-
+    
     return 0;
 }
