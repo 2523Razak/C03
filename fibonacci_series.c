@@ -1,20 +1,18 @@
 #include <stdio.h>
 
-int fibo_terme(int t) {
-    if (t == 0) return 0;
-    if (t == 1) return 1;
-    return fibo_terme(t - 2) + fibo_terme(t - 1);
-}
-
 int main() {
-    int limite;
-    scanf("%d", &limite); // Ex: 20
+    int n;
+    scanf("%d", &n);  // Lecture de la limite
     
-    // Affiche tous les termes ≤ limite
-    for (int i = 0; ; i++) {
-        int terme = fibo_terme(i);
-        if (terme > limite) break;
-        printf("%d ", terme); // Pas d'espace
+    int a = 0, b = 1; // Initialisation des termes
+    printf("%d", a);   // Affiche toujours U0=0
+    
+    // Affiche les termes <= n avec espace avant (sauf premier)
+    while (b <= n) {
+        printf(" %d", b);
+        int suivant = a + b;
+        a = b;
+        b = suivant;
     }
     
     return 0;
